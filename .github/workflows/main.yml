@@ -1,0 +1,15 @@
+name: js CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npx prettier --check .
+  spell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: streetsidesoftware/cspell-action@v4
